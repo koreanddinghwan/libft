@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/07 14:27:19 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/07 16:19:50 by myukang          ###   ########.fr       */
+/*   Created: 2022/03/07 15:20:57 by myukang           #+#    #+#             */
+/*   Updated: 2022/03/07 15:22:01 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned long	ft_strlen(char *c)
+int	ft_tolower(int c)
 {
-	unsigned long	size;
-
-	size = 0;
-	while (c[size])
-		size++;
-	return (size);
+	if (c >= 65 && c <= 90)
+		c += 32;
+	return (c);
 }

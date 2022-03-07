@@ -60,10 +60,59 @@ int main(void)
 	while (c < 127)
 	{
 		printf("-------------");
-		printf("\ni : %c, toupper : %c\n", c, toupper(c));
-		printf("\ni : %c, toupper : %c\n", c, ft_toupper(c));
+		printf("\nc : %c, toupper : %c\n", c, toupper(c));
+		printf("\nc : %c, ft_toupper : %c\n", c, ft_toupper(c));
 		c++;
 	}
+
+	c = 32;
+	while (c < 127)
+	{
+		printf("-------------");
+		printf("\nc : %c, tolower : %c\n", c, tolower(c));
+		printf("\nc : %c, ft_tolower : %c\n", c, ft_tolower(c));
+		c++;
+	}
+
+	char *b;
+	char *cm;
+
+	b = malloc(sizeof(char) * 100);
+	b = (char *)memset(b, '0', 1);
+	
+	cm = malloc(sizeof(char) * 100);
+	cm = (char *)ft_memset(cm, '0', 1);
+
+	i = 0;
+	while(i < 100)
+	{
+		printf("i : %d, b : %d\n", i, *b);
+		b++;
+		i++;
+	}
+
+	printf("\n\n\nft_memset\n\n\n");
+	i = 0;
+	while(i < 100)
+	{
+		printf("i : %d, b : %d\n", i, *cm);
+		cm++;
+		i++;
+	}
+	
+	printf("\n\n\nmemset\n\n\n");
+	int	 *memset_arr;
+	memset_arr = malloc(sizeof(int));
+	memset_arr = (int *)memset(memset_arr, 0x27, sizeof(int));
+	i = 0;
+	printf("i : %d v :  %x\n",i, *memset_arr);
+
+	int *memset_arr2;
+	printf("\n\nft_memset\n\n");
+	memset_arr2 = malloc(sizeof(int));
+	memset_arr2 = (int *)ft_memset(memset_arr2, 0x27, sizeof(int));
+	i = 0;
+	printf("i : %d v :  %x\n",i, *memset_arr2);
 
 	return 0;
 }

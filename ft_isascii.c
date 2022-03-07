@@ -6,15 +6,14 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 14:05:02 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/07 14:24:58 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/07 16:20:41 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isascii(int c)
+int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)
 		return (1);
 	else
 		return (0);
 }
-

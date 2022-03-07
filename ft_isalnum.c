@@ -6,13 +6,13 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 13:59:38 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/07 14:01:26 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/07 16:20:17 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isalnum(int c)
+int	ft_isalnum(int c)
 {
 	if (ft_isalpha(c))
 		return (1);

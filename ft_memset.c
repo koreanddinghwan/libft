@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/07 14:27:19 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/07 16:19:50 by myukang          ###   ########.fr       */
+/*   Created: 2022/03/07 15:24:39 by myukang           #+#    #+#             */
+/*   Updated: 2022/03/07 16:20:23 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned long	ft_strlen(char *c)
+void	*ft_memset(void *b, int c, unsigned long len)
 {
-	unsigned long	size;
+	unsigned long	i;
+	void			*d;
 
-	size = 0;
-	while (c[size])
-		size++;
-	return (size);
+	i = 0;
+	d = b;
+	while (i < len)
+	{
+		*((char *)d + i) = c;
+		i++;
+	}
+	return (b);
 }

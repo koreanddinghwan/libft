@@ -6,11 +6,11 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 13:36:35 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/07 13:50:18 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/07 16:19:39 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
 	if (c >= 49 && c <= 57)
 		return (1);

@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/07 14:27:19 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/07 16:19:50 by myukang          ###   ########.fr       */
+/*   Created: 2022/03/07 16:14:44 by myukang           #+#    #+#             */
+/*   Updated: 2022/03/07 16:20:00 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned long	ft_strlen(char *c)
+void	ft_bzero(void *s, unsigned long n)
 {
-	unsigned long	size;
+	unsigned long	i;
 
-	size = 0;
-	while (c[size])
-		size++;
-	return (size);
+	i = 0;
+	while (i < n)
+	{
+		*((char *)s) = 0;
+		i++;
+	}
 }
