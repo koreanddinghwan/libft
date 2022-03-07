@@ -101,18 +101,46 @@ int main(void)
 	}
 	
 	printf("\n\n\nmemset\n\n\n");
-	int	 *memset_arr;
-	memset_arr = malloc(sizeof(int));
-	memset_arr = (int *)memset(memset_arr, 0x27, sizeof(int));
+	void	 *memset_arr;
+	memset_arr = malloc(sizeof(char) * 10);
+	memset_arr = (char *)memset(memset_arr, 0x27, 8);
 	i = 0;
-	printf("i : %d v :  %x\n",i, *memset_arr);
+	printf("i : %d v :  %x\n",i, *(char *)memset_arr);
+	memset_arr++;
+	printf("i : %d v :  %x\n",i, *(char *)memset_arr);
+	
+	memset_arr = malloc(sizeof(char) * 10);
+	memset_arr = (char *)memset(memset_arr, 0x27, -1);
+	printf("i : %d v :  %x\n",-1, *(char *)memset_arr);
+	i = 0;
+	printf("i %d, %x\n", i, *(char *)(memset_arr + i));
 
 	int *memset_arr2;
 	printf("\n\nft_memset\n\n");
-	memset_arr2 = malloc(sizeof(int));
-	memset_arr2 = (int *)ft_memset(memset_arr2, 0x27, sizeof(int));
+	memset_arr2 = malloc(sizeof(int) * 2);
+	memset_arr2 = (int *)ft_memset(memset_arr2, 0x27, 8);
 	i = 0;
 	printf("i : %d v :  %x\n",i, *memset_arr2);
+	memset_arr2++;
+	printf("i : %d v :  %x\n",i, *memset_arr2);
 
+	void	*p;
+	char 	*t;
+
+	p = malloc(sizeof(char) * 20);
+	p = {'t', 'e', 's', 't', ' ', 't', 'e', 'x', 't', 0};
+	t = "test text";
+	printf("%s\n", (char *)memmove(p, p, 11));
+
+	void	*p2;
+	p2 = malloc(sizeof(char) * 20);
+	printf("%s\n", (char *)ft_memcpy(p2, t, 11));
+
+	
+
+
+
+	free(p);
+	free(p2);
 	return 0;
 }

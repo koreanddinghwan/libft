@@ -6,11 +6,13 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 16:14:44 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/07 16:20:00 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/07 16:56:46 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_bzero(void *s, unsigned long n)
+#include "libft.h"
+
+void	ft_bzero(void *s, size_t n)
 {
 	unsigned long	i;
 
