@@ -74,83 +74,82 @@ int main(void)
 		c++;
 	}
 
+	printf("\n######strlen####\n");
+
+	char *stlen = "i am myukang";
+
+	printf(" strlen : %lu\n", strlen(stlen));
+	printf(" ft_strlen : %lu\n", ft_strlen(stlen));
+	printf(" sizeof size_t : %lu\n", sizeof(size_t));
+
 	char *b;
-	char *cm;
 
-	b = malloc(sizeof(char) * 100);
-	b = (char *)memset(b, '0', 1);
-	
-	cm = malloc(sizeof(char) * 100);
-	cm = (char *)ft_memset(cm, '0', 1);
+	b = malloc(sizeof(unsigned char) * 50);
+	b = memset(b, 128, -1);
 
+	printf("\n###memset###\n");
 	i = 0;
 	while(i < 100)
 	{
-		printf("i : %d, b : %d\n", i, *b);
+		printf("i : %d, b : %d\n", i, *((unsigned char *)b));
 		b++;
 		i++;
 	}
 
+	char *cm;
+	cm = malloc(sizeof(unsigned char) * 50);
+	cm = ft_memset(cm, 128, -1);
 	printf("\n\n\nft_memset\n\n\n");
 	i = 0;
 	while(i < 100)
 	{
-		printf("i : %d, b : %d\n", i, *cm);
+		printf("i : %d, b : %d\n", i, *((unsigned char *)cm));
 		cm++;
 		i++;
 	}
 	
-	printf("\n\n\nmemset\n\n\n");
+	printf("\n\n\n###memset\n");
 	void	 *memset_arr;
 	memset_arr = malloc(sizeof(char) * 10);
-	memset_arr = (char *)memset(memset_arr, 0x27, 8);
-	i = 0;
-	printf("i : %d v :  %x\n",i, *(char *)memset_arr);
-	memset_arr++;
-	printf("i : %d v :  %x\n",i, *(char *)memset_arr);
-	
-	memset_arr = malloc(sizeof(char) * 10);
 	memset_arr = (char *)memset(memset_arr, 0x27, -1);
-	printf("i : %d v :  %x\n",-1, *(char *)memset_arr);
 	i = 0;
-	printf("i %d, %x\n", i, *(char *)(memset_arr + i));
-
-	int *memset_arr2;
-	printf("\n\nft_memset\n\n");
-	memset_arr2 = malloc(sizeof(int) * 2);
-	memset_arr2 = (int *)ft_memset(memset_arr2, 0x27, 8);
+	while (i < 20)
+	{
+		printf("i %d, v : %x\n", i, *(char *)(memset_arr + i));
+		i++;
+	}
+	void	 *memset_arr2;
+	printf("\n\n####ft_memset####\n");
+	memset_arr2 = malloc(sizeof(char) * 10);
+	memset_arr2 = (int *)ft_memset(memset_arr2, 0x27, -1);
 	i = 0;
-	printf("i : %d v :  %x\n",i, *memset_arr2);
-	memset_arr2++;
-	printf("i : %d v :  %x\n",i, *memset_arr2);
+	while (i < 20)
+	{
+		printf("i : %d v :  %x\n",i, *(char *)(memset_arr2 + i));
+		i++;
+	}
 
-	void	*p;
-	char 	*t;
+	printf("\n\n####memcpy####\n");
+char source[28] = "This is the source string";
+char target[28] = "This is the target string";
+ 
+  printf( "Before memcpy, target is \"%s\"\n", target );
+  memcpy( target, source, 28);
+  printf( "After memcpy, target becomes \"%s\"\n", target );
 
-	p = malloc(sizeof(char) * 20);
-	((char *)p)[0] = 't';
-	((char *)p)[1] = 'e';
-	((char *)p)[2] = 'x';
-	((char *)p)[3] = 't';
-	((char *)p)[4] = ' ';
-	((char *)p)[5] = 't';
-	((char *)p)[6] = 'e';
-	((char *)p)[7] = 's';
-	((char *)p)[8] = 't';
-	((char *)p)[9] = 0;
+  printf("\n\n####ft_memcpy####\n");
+char source2[28] = "This is the source string";
+char target2[28] = "This is the target string";
 
-	t = "test text";
-	printf("%s\n", (char *)memmove(p, p, 11));
-
-	void	*p2;
-	p2 = malloc(sizeof(char) * 20);
-	printf("%s\n", (char *)ft_memcpy(p2, t, 11));
-
-	
-
+  printf( "Before ft_memcpy, target is \"%s\"\n", target2 );
+  ft_memcpy( target2, source2, 28);
+  printf( "After ft_memcpy, target becomes \"%s\"\n", target2 );
+/*********************  Expected output:  ************************
+ 
+Before memcpy, target is "This is the target string"
+After memcpy, target becomes "This is the source string"
+*/
 
 
-	free(p);
-	free(p2);
 	return 0;
 }

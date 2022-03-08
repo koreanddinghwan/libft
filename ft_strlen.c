@@ -6,11 +6,13 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 14:27:19 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/07 16:19:50 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/08 22:13:16 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned long	ft_strlen(char *c)
+#include "./libft.h"
+
+size_t	ft_strlen(char *c)
 {
 	unsigned long	size;
 

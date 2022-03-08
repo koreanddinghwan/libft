@@ -7,14 +7,16 @@ CFLAGS = -Wall -Wextra -Werror -c
 all : $(NAME)
 
 .c.o : $(SRCS)
-	@$(CC) $(CFLAGS) $< -o $(<:.c=.o) -I . 
+	$(CC) -g $(CFLAGS) $< -o $(<:.c=.o) -I . 
 
 $(NAME) : $(OBJS)
-	@ar rc $(NAME) $^
+	ar rc $(NAME) $^
 
-main :
-	$(re)
-	gcc main.c -lft -L.
+main : $(re)
+	gcc -Wall -Wextra -Werror main.c -lft -L.
+
+dmain : $(re)
+	$(cc) -g main.c -lft -L.
 
 mclean :
 	@rm -f a.out
