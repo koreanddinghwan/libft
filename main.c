@@ -128,7 +128,17 @@ int main(void)
 	char 	*t;
 
 	p = malloc(sizeof(char) * 20);
-	p = {'t', 'e', 's', 't', ' ', 't', 'e', 'x', 't', 0};
+	((char *)p)[0] = 't';
+	((char *)p)[1] = 'e';
+	((char *)p)[2] = 'x';
+	((char *)p)[3] = 't';
+	((char *)p)[4] = ' ';
+	((char *)p)[5] = 't';
+	((char *)p)[6] = 'e';
+	((char *)p)[7] = 's';
+	((char *)p)[8] = 't';
+	((char *)p)[9] = 0;
+
 	t = "test text";
 	printf("%s\n", (char *)memmove(p, p, 11));
 
