@@ -6,25 +6,23 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 17:36:51 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/07 17:40:37 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/09 13:56:31 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
-void	*ft_memmove(void	*dst, void	*src, size_t len)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned long	i;
+	size_t			i;
 	char			*d;
 	char			*s;
 
 	i = 0;
-	if (dst == src)
-	{
+	if (dst == src || len == 0)
 		return (dst);
-	}
-	d = dst;
-	s = src;
+	d = (char *)dst;
+	s = (char *)src;
 	while (i < len)
 	{
 		*(d++) = *(s++);

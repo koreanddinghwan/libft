@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/07 14:27:19 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/09 13:48:20 by myukang          ###   ########.fr       */
+/*   Created: 2022/03/09 15:34:01 by myukang           #+#    #+#             */
+/*   Updated: 2022/03/09 15:34:58 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(char *c)
+char	*ft_strdup(char *src)
 {
-	size_t	size;
+	int		size;
+	char	*ptr;
+	int		i;
 
-	size = 0;
-	while (c[size])
-		size++;
-	return (size);
+	size = ft_strlen(src);
+	ptr = malloc(sizeof(char) * size + 1);
+	if (!ptr)
+		return (0);
+	i = 0;
+	while (src[i])
+	{
+		ptr[i] = src[i];
+		i++;
+	}
+	ptr[i] = '\0';
+	return (ptr);
 }

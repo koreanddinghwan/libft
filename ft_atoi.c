@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/07 15:24:39 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/09 16:21:20 by myukang          ###   ########.fr       */
+/*   Created: 2022/03/09 15:37:11 by myukang           #+#    #+#             */
+/*   Updated: 2022/03/09 15:48:36 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-void	*ft_memset(void *b, int c, size_t len)
+static int ft_isspace(char c)
 {
-	size_t			i;
-	unsigned char	*d;
+	if ((c >= 9 && c <= 13) || c == 32)
+		return (1);
+	return (0);
+}
 
-	i = 0;
-	d = b;
-	while (i < len && i < 64)
+int	ft_atoi(const char *str)
+{
+	long long	result;
+	int			sign;
+
+	result = 0;
+	sign = 1;
+	while (ft_isspace(*str))
+		str++;
+	if (*str == '-' || *str == '+')
 	{
-		*(d + i) = (unsigned char)c;
-		i++;
+		if (*str == '-')
+			sign *= -1;
+		str++;	
 	}
-	return (b);
+	while (*str >= '0' && *str <= '9')
+	{
+		result = result * 10 + *str - '0';
+		str++;
+	}
+	return (result * sign);
 }
