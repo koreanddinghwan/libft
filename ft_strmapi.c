@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 16:39:57 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/11 01:35:55 by myukang          ###   ########.fr       */
+/*   Created: 2022/03/10 22:40:51 by myukang           #+#    #+#             */
+/*   Updated: 2022/03/10 23:03:36 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	i;
-	char	*p;
-	char	*h;
+	char			*p;
+	unsigned int	i;
 
-	if (ft_strlen((char *)needle) == 0)
-		return ((char *)haystack);
+	p = ft_calloc(ft_strlen((char *)s) + 1, sizeof(char));
+	if (!p)
+		return (0);
+	if (!f || !s)
+		return (0);
 	i = 0;
-	p = 0;
-	h = (char *)haystack;
-	while (i < len && *h)
+	while (s[i])
 	{
-		if ((*h == *needle) && (len - i >= ft_strlen((char *)needle)))
-		{
-			if (ft_strncmp((char *)h, (char *)needle, ft_strlen((char *)needle)) == 0)
-			{
-				p = h;
-				break;
-			}
-		}
-		h++;
+		p[i] = f(i, s[i]);
 		i++;
 	}
 	return (p);

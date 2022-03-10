@@ -3,6 +3,19 @@
 #include <string.h>
 #include <stdlib.h>
 #include "libft.h"
+char	strmapifnc(unsigned int i, char c)
+	{
+		if (i % 2 == 0)
+			return (c + 1);
+		else
+			return (c);
+	}
+
+void	striterifnc(unsigned int i, char *s)
+{
+	if (i % 2 == 0)
+		*s = *s + 1;
+}
 
 int main(void)
 {
@@ -273,8 +286,11 @@ After memcpy, target becomes "This is the source string"
 
 	printf("\n\n####strnstr####\n");
 	printf("strnstr : %s\n", strnstr(strnstr1, strnstr2, 10)); 
+	printf("strnstr : %s\n", ft_strnstr(strnstr1, strnstr2, 10)); 
 	printf("strnstr : %s\n", strnstr(strnstr1, strnstr3, 10)); 
+	printf("strnstr : %s\n", ft_strnstr(strnstr1, strnstr3, 10)); 
 	printf("strnstr : %s\n", strnstr(strnstr1, strnstr4, 10)); 
+	printf("strnstr : %s\n", ft_strnstr(strnstr1, strnstr4, 10)); 
 
 	char	*callocp1 = calloc(5, sizeof(char));
 	short	*callocp2 = calloc(5, sizeof(short));
@@ -347,5 +363,30 @@ After memcpy, target becomes "This is the source string"
 		printf("%s\n", splitpointer[i]);	
 		i++;
 	}
+
+	printf("\n\n###itoa####\n");
+	int	d = -2147483648;
+	printf("%d -> \"%s\"\n", d, ft_itoa(d));
+	d = 2147483647;
+	printf("%d -> \"%s\n", d, ft_itoa(d));
+	d = 0;
+	printf("%d -> \"%s\"\n", d, ft_itoa(d));
+	d = 1234;
+	printf("%d -> \"%s\"\n", d, ft_itoa(d));
+	d = -1234;
+	printf("%d -> \"%s\"\n", d, ft_itoa(d));
+
+	printf("\n\n####strmapifnc###\n");
+
+	char strmapistr1[30] = "abcdefghijk";
+	printf("origin => \"%s\"\n", strmapistr1);
+	printf("after => \"%s\"\n", ft_strmapi(strmapistr1, strmapifnc));
+
+
+	printf("\n\n####striteri###\n");
+	char striteristr[30] = "abcdefghijk";
+	printf("origin => \"%s\"\n", striteristr);
+	ft_striteri(striteristr, striterifnc);
+	printf("after => \"%s\"\n", striteristr);
 	return 0;
 }
