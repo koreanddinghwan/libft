@@ -151,29 +151,23 @@ After memcpy, target becomes "This is the source string"
 */
 
 
-	printf("\n\n####memmove####\n");
+	printf("\n\n####memmove, slide << 1####\n");
   char target3[30] = "a shiny white sphere";
-  char *p = target3 + 8;  /* p points at the starting character
-                          of the word we want to replace */
-  char *source3 = target3 + 14; /* start of "shiny" */
+  char *p = target3 + 3;  
+  char *source3 = target3 + 5;  
   printf( "Before memmove, target is \"%s\"\n", target3 );
-  memmove( p, source3, 8);
+  memmove( p, source3, 3);
   printf( "After memmove, target becomes \"%s\"\n", target3 );
 
-	printf("\n\n####ft_memmove####\n");
+	printf("\n\n####ft_memmove slide << 1####\n");
   char target4[30] = "a shiny white sphere";
-  char *p2 = target4 + 8;  /* p points at the starting character
-                          of the word we want to replace */
-  char *source4 = target4 + 14; /* start of "shiny" */
+  char *p2 = target4 + 3;  
+  char *source4 = target4 + 5; 
   printf( "Before memmove, target is \"%s\"\n", target4 );
-  ft_memmove( p2, source4, 8);
+  ft_memmove( p2, source4, 3);
   printf( "After memmove, target becomes \"%s\"\n", target4 );
 
 
-	char target5[30] = "this is a dup test";
-	printf("dup test \"%s\"\n", target5);
-	ft_memmove(target5, target5, 1);  
-	printf("dup test \"%s\"\n", target5);
 
 	printf("\n\n####memchr####\n");
 	unsigned char target6[13] = {15, 26, 175, 123, 253, -123, -1};
@@ -256,6 +250,12 @@ After memcpy, target becomes "This is the source string"
 	printf("%d\n", ft_atoi(atoitest3));
 	printf("%d\n", atoi(atoitest4));
 	printf("%d\n", ft_atoi(atoitest4));
+	
+	printf("\n\n###strncmp####\n");
+	char strncmp1[20] = "this is test";
+	char strncmp2[20] = "";
+	printf("%d\n", strncmp(strncmp1, strncmp2, 0));
+	printf("%d\n", ft_strncmp(strncmp1, strncmp2, 0));
 
 	printf("\n\n####strchr####\n");
 	char strchr1[20] = "this is test";
@@ -266,5 +266,86 @@ After memcpy, target becomes "This is the source string"
 	printf("strrchr	: %s\n", strrchr(strchr1, 105));
 	printf("ft_strrchr : %s\n", ft_strrchr(strchr1, 105));
 
+	char strnstr1[20] = "this is test string";
+	char strnstr2[20] = "this";
+	char strnstr3[20] = "is";
+	char strnstr4[20] = "test";
+
+	printf("\n\n####strnstr####\n");
+	printf("strnstr : %s\n", strnstr(strnstr1, strnstr2, 10)); 
+	printf("strnstr : %s\n", strnstr(strnstr1, strnstr3, 10)); 
+	printf("strnstr : %s\n", strnstr(strnstr1, strnstr4, 10)); 
+
+	char	*callocp1 = calloc(5, sizeof(char));
+	short	*callocp2 = calloc(5, sizeof(short));
+	int		*callocp3 = calloc(5, sizeof(int));
+	long	*callocp4 = calloc(5, sizeof(long));
+	
+	printf("\n\n####calloc###\n");
+	i = 0;
+	while (i < 5)
+	{
+		printf("\n#####\n");
+		printf("%d번째\n", i);
+		printf("char : %c\n", callocp1[i]);
+		printf("short : %hu\n", callocp2[i]);
+		printf("int : %d\n", callocp3[i]);
+		printf("long : %ld\n", callocp4[i]);
+		i++;
+	}
+
+	callocp1 = ft_calloc(5, sizeof(char));
+	callocp2 = ft_calloc(5, sizeof(short));
+	callocp3 = ft_calloc(5, sizeof(int));
+	callocp4 = ft_calloc(5, sizeof(long));
+
+	printf("\n\n####ft_calloc###\n");
+	i = 0;
+	while (i < 5)
+	{
+		printf("\n#####\n");
+		printf("%d번째\n", i);
+		printf("char : %c\n", callocp1[i]);
+		printf("short : %hu\n", callocp2[i]);
+		printf("int : %d\n", callocp3[i]);
+		printf("long : %ld\n", callocp4[i]);
+		i++;
+	}
+
+	printf("\n\n####ft_substr####\n");
+	char substr1[30] = "substr test";
+	printf("original string \"%s\"\n", substr1);
+	printf("ft_substr(substr1, 1, 5) : %s\n", ft_substr(substr1, 1, 5));
+	printf("ft_substr(substr1, 7, 1) : %s\n", ft_substr(substr1, 7, 1));
+	printf("ft_substr(substr1, 7, 9) : %s\n", ft_substr(substr1, 7, 9));
+	
+	printf("\n\n####strjoin####\n");
+	char joinstr1[30] = "joinstr";
+	char joinstr2[30] = "this join is simple";
+	printf("ft_joinstr(joinstr1, joinstr2) -> \"%s\"\n", ft_strjoin(joinstr1, joinstr2));
+	char joinstr3[30] = "";
+	char joinstr4[30] = "";
+	printf("ft_joinstr(joinstr3, joinstr4) -> \"%s\"\n", ft_strjoin(joinstr3, joinstr4));
+
+	printf("\n\n####strtrim####\n");
+	char trimstr1[30] = "trim this str please";
+	char set[30] = "eti";
+	printf("trimstr1 : %s\n", trimstr1);
+	printf("set : %s\n", set);
+	printf("ft_strtrim(trimstr1, set) -> \"%s\"\n", ft_strtrim(trimstr1, set));
+
+	printf("\n\n####ft_split####\n");
+	char splitstr1[30] = "split is very freindly";
+	c = 0;
+	char	**splitpointer;
+	printf("splitstr -> %s\n", splitstr1);
+	printf("c -> %c\n", c);
+	splitpointer = ft_split(splitstr1, c);
+	i = 0;
+	while (splitpointer[i] != 0)
+	{
+		printf("%s\n", splitpointer[i]);	
+		i++;
+	}
 	return 0;
 }

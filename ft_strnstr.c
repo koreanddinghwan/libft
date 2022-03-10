@@ -6,26 +6,34 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 16:39:57 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/09 16:46:19 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/10 14:35:55 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-/*여기서부터 다시. string안에서 string 찾는거임. 반복문 2개 써라.*/
 	size_t	i;
 	char	*p;
-	char	*src;
+	char	*h;
 
 	if (ft_strlen((char *)needle) == 0)
-		return (haystack);
+		return ((char *)haystack);
 	i = 0;
 	p = 0;
-	while (i < len &&)
+	h = (char *)haystack;
+	while (i < len && *h)
 	{
-		
+		if (*h == *needle)
+		{
+			if (ft_strncmp((char *)h, (char *)needle, ft_strlen((char *)needle)))
+			{
+				p = h;
+				break;
+			}
+		}
+		h++;
 		i++;
 	}
 	return (p);

@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/07 16:37:02 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/10 19:14:43 by myukang          ###   ########.fr       */
+/*   Created: 2022/03/10 17:05:37 by myukang           #+#    #+#             */
+/*   Updated: 2022/03/10 18:13:34 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char			*d;
-	char			*s;
+	size_t	str_len;
+	char	*joinstr;
 
-	d = (char *)dst;
-	s = (char *)src;
-	while (n-- > 0)
-		*(d++) = *(s++);
-	return (dst);
+	str_len = ft_strlen((char *)s1) + ft_strlen((char *)s2);
+	joinstr = ft_calloc(str_len, sizeof(char));
+	if (!joinstr)
+		return (0);
+	ft_strlcpy(joinstr + ft_strlcpy(joinstr, (char *)s1, str_len + 1), (char *)s2, str_len + 1);
+	return (joinstr);
 }

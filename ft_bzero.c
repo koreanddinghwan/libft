@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 16:14:44 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/09 13:43:51 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/10 21:29:25 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,9 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t	i;
+	char	*p;
 
-	i = 0;
-	while (i < n)
-	{
-		*((char *)s) = 0;
-		i++;
-	}
+	p = s;
+	while (n-- > 0)
+		*(p++) = 0;
 }
