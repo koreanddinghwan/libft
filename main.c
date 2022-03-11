@@ -388,5 +388,13 @@ After memcpy, target becomes "This is the source string"
 	printf("origin => \"%s\"\n", striteristr);
 	ft_striteri(striteristr, striterifnc);
 	printf("after => \"%s\"\n", striteristr);
+	
+	printf("\n\n####putchar####\n");
+	char putchar1 = 'A';
+	printf("putchar1 : \'%c\'\n", putchar1);
+	ft_putchar_fd(putchar1, 1);
+	
+
+
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 16:21:11 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/10 23:15:01 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/11 11:38:49 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define  LIBFT_H
 # include <stddef.h>
 # include <stdlib.h>
+# include <unistd.h>
 # include <stdio.h>
 
 int				ft_isalpha(int c);
@@ -46,5 +47,9 @@ char			**ft_split(char const *s, char c);
 char			*ft_itoa(int n);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void			ft_striteri(char *s, void (*f)(unsigned int, char*));
+void			ft_putchar_fd(char c, int fd);
+void			ft_putstr_fd(char *s, int fd);
+void			ft_putendl_fd(char *s, int fd);
+void			ft_putnbr_fd(int n, int fd);
 
 #endif
