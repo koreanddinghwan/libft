@@ -6,11 +6,11 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 15:37:11 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/09 15:48:36 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/11 17:22:30 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int ft_isspace(char c)
+static int	ft_isspace(char c)
 {
 	if ((c >= 9 && c <= 13) || c == 32)
 		return (1);
@@ -30,7 +30,7 @@ int	ft_atoi(const char *str)
 	{
 		if (*str == '-')
 			sign *= -1;
-		str++;	
+		str++;
 	}
 	while (*str >= '0' && *str <= '9')
 	{

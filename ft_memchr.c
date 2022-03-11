@@ -6,18 +6,18 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 10:33:09 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/09 16:14:02 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/11 17:25:51 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-void * ft_memchr(const void *s, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
 	void			*p;
 	unsigned char	*str;
 	size_t			i;
-	
+
 	p = 0;
 	str = (unsigned char *)s;
 	i = 0;
@@ -26,10 +26,9 @@ void * ft_memchr(const void *s, int c, size_t n)
 		if (str[i] == (unsigned char)c)
 		{
 			p = str + i;
-			break;
+			break ;
 		}
 		i++;
 	}
 	return (p);
 }
-

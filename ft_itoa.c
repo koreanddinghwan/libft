@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 21:31:32 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/10 22:05:02 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/11 12:08:30 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ char	*ft_itoa(int n)
 	ln = n;
 	size = ft_caldigit(ln) + 1 + (ln < 0);
 	p = ft_calloc(size, sizeof(char));
-	printf("%d\n", size);
 	if (!p)
 		return (0);
 	p[--size] = 0;

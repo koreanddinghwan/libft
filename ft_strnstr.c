@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 16:39:57 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/11 01:35:55 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/11 17:29:53 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,11 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	{
 		if ((*h == *needle) && (len - i >= ft_strlen((char *)needle)))
 		{
-			if (ft_strncmp((char *)h, (char *)needle, ft_strlen((char *)needle)) == 0)
+			if (ft_strncmp((char *)h,
+					(char *)needle, ft_strlen((char *)needle)) == 0)
 			{
 				p = h;
-				break;
+				break ;
 			}
 		}
 		h++;

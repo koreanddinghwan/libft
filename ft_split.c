@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 19:06:21 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/10 21:28:01 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/11 17:27:22 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static char	*ft_makestr(char *str, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	char 	**p;
+	char	**p;
 	int		p_index;
 
 	p = ft_calloc(ft_calstr((char *)s, c), sizeof(char *));

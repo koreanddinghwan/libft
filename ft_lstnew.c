@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/10 16:50:55 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/11 17:33:46 by myukang          ###   ########.fr       */
+/*   Created: 2022/03/11 12:48:53 by myukang           #+#    #+#             */
+/*   Updated: 2022/03/11 17:33:47 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+t_list	*ft_lstnew(void	*content)
 {
-	char	*substr;
+	t_list	*node;
 
-	substr = ft_calloc(len + 1, sizeof(char));
-	if (!substr)
-		return (0);
-	if (!s)
-		return (0);
-	if (ft_strlen((char *)s) <= (size_t)start)
-		return (ft_strdup(0));
-	ft_strlcpy(substr, (char *)(s + start), len + 1);
-	return (substr);
+	node = ft_calloc(1, sizeof(t_list));
+	node->content = content;
+	node->next = 0;
+	return (node);
 }

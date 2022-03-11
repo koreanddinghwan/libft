@@ -17,6 +17,55 @@ void	striterifnc(unsigned int i, char *s)
 		*s = *s + 1;
 }
 
+void	listprint(t_list	*node)
+{
+	t_list	*start = node;
+	int	i = 1;
+	printf("%ld\n", (unsigned long)node);
+	while(start != 0)
+	{
+		printf("<%d번째 노드 %s> -> ",i,start->content);
+		i++;
+		start = start->next;
+	}
+	if (start == 0)
+		printf("NULL");
+	printf("\n");
+}
+
+void	listintprint(t_list	*start)
+{
+	int	i = 1;
+	while (start != 0)
+	{
+		printf("<%d 번째 노드 %d> -> ", i, *(int *)start->content);
+		start = start->next;
+		i++;
+	}
+	if (start == 0)
+		printf("NULL");
+	printf("\n");
+}
+
+void	delcontent(void	*delcontp)
+{
+	free(delcontp);	
+}
+
+void	iterfnc(void	*cont)
+{
+	printf("iter function이 여기서 호출됨 %s\n", (char *)cont);
+}
+
+void	*mapfnc(void	*cont)
+{
+	int	*result;
+	
+	result = cont;
+	*result = *result + 1;
+	return (result);
+}
+
 int main(void)
 {
 	int i  = -10;
@@ -290,12 +339,13 @@ After memcpy, target becomes "This is the source string"
 	printf("strnstr : %s\n", strnstr(strnstr1, strnstr3, 10)); 
 	printf("strnstr : %s\n", ft_strnstr(strnstr1, strnstr3, 10)); 
 	printf("strnstr : %s\n", strnstr(strnstr1, strnstr4, 10)); 
-	printf("strnstr : %s\n", ft_strnstr(strnstr1, strnstr4, 10)); 
+	printf("strnstr : %s\n", ft_strnstr(strnstr1, strnstr4, 10));
+	printf("test\n");
 
-	char	*callocp1 = calloc(5, sizeof(char));
-	short	*callocp2 = calloc(5, sizeof(short));
-	int		*callocp3 = calloc(5, sizeof(int));
-	long	*callocp4 = calloc(5, sizeof(long));
+	char	*callocp1 = ft_calloc(5, sizeof(char));
+	short	*callocp2 = ft_calloc(5, sizeof(short));
+	int		*callocp3 = ft_calloc(5, sizeof(int));
+	long	*callocp4 = ft_calloc(5, sizeof(long));
 	
 	printf("\n\n####calloc###\n");
 	i = 0;
@@ -393,8 +443,156 @@ After memcpy, target becomes "This is the source string"
 	char putchar1 = 'A';
 	printf("putchar1 : \'%c\'\n", putchar1);
 	ft_putchar_fd(putchar1, 1);
+
+	printf("\n\n####putstr####\n");	
+	char	putstr1[30] = "putstr is friendly now";
+	ft_putstr_fd(putstr1, 1);
+	ft_putstr_fd("--------newline------", 1);
+
+	printf("\n\n####putendl####\n");
+	char	putendl[30] = "putendl end with newl";
+	ft_putendl_fd(putendl, 1);
+	ft_putstr_fd("--------newline------", 1);
+
+	printf("\n\n####putnbr####\n");
+	d = -2147483648;
+	printf("n : %d\n", d);
+	ft_putnbr_fd(d, 1);
+	printf("\n");
+	printf("\n");
 	
+	d = 2147483647;
+	printf("n : %d\n", d);
+	ft_putnbr_fd(d, 1);
+	printf("\n");
+	printf("\n");
+	
+	d = 0;
+	printf("n : %d\n", d);
+	ft_putnbr_fd(d, 1);
+	printf("\n");
+	printf("\n");
+	
+	d = -2147;
+	printf("n : %d\n", d);
+	ft_putnbr_fd(d, 1);
+	printf("\n");
+	printf("\n");
+	
+	d = 2147;
+	printf("n : %d\n", d);
+	ft_putnbr_fd(d, 1);
+	printf("\n");
+	printf("\n");
 
+	char	*content1 = ft_strdup("node1");
+	char	*content2 = ft_strdup("node2");
+	char	*content3 = ft_strdup("node3");
+	char	*content4 = ft_strdup("node4");
+	char	*content5 = ft_strdup("node5");
+	char	*content6 = ft_strdup("node6");
 
+	t_list	*node1 = ft_lstnew((void *)content1);
+	printf("%s\n", node1->content);
+	
+	t_list	*node2 = ft_lstnew((void *)content2);
+	printf("%s\n", node2->content);
+
+	t_list	*node3 = ft_lstnew((void *)content3);
+	printf("%s\n", node3->content);
+
+	t_list	*node4 = ft_lstnew((void *)content4);
+	printf("%s\n", node4->content);
+
+	t_list	*node5 = ft_lstnew((void *)content5);
+	printf("%s\n", node5->content);
+
+	t_list	*node6 = ft_lstnew((void *)content6);
+	printf("%s\n", node6->content);
+
+	t_list	*list;
+	list = node1;
+	ft_lstadd_front(&list, node2);
+	printf("\n\n####ft_lstadd_front####\n");
+	printf("list는node2->node1인 상태입니다\n");
+	listprint(list);
+	
+	printf("\n\n####ft_lstsize####\n");
+	printf("list의 개수는 2입니다. ->%d\n", ft_lstsize(list));
+	printf("단일 노드의 크기는 1입니다. ->%d\n", ft_lstsize(node5));
+	
+	printf("\n\n####ft_lstlast####\n");
+	printf("list의 마지막 노드는 node1입니다 -> %s\n", ft_lstlast(list)->content);
+	printf("단일노드의 마지막 노드는 자기자신입니다. -> %s\n", ft_lstlast(node5)->content);	
+	ft_lstadd_back(&list, node3);
+	printf("list에 맨 뒤에 node3를 추가했습니다\n");
+	listprint(list);
+
+	printf("\n\n####ft_lstdelone####\n");
+	printf("list의 content를 삭제해봅시다\n");
+	printf("list before---\n");
+	listprint(list);
+	ft_lstdelone(list, delcontent);
+	printf("\n\nlist after----\n");
+	listprint(list);
+
+	printf("\n\n####ft_lstclear####\n");
+	list = list->next;
+	printf("before\n");
+	listprint(list);
+	ft_lstclear(&(list), delcontent);
+	listprint(list);
+
+	printf("\n\n####ft_lstiter####\n");
+	content1 = ft_strdup("node1");
+	content2 = ft_strdup("node2");
+	content3 = ft_strdup("node3");
+	content4 = ft_strdup("node4");
+	content5 = ft_strdup("node5");
+	content6 = ft_strdup("node6");
+
+	node1 = ft_lstnew((void *)content1);
+	node2 = ft_lstnew((void *)content2);
+	node3 = ft_lstnew((void *)content3);
+	node4 = ft_lstnew((void *)content4);
+	node5 = ft_lstnew((void *)content5);
+	node6 = ft_lstnew((void *)content6);
+
+	list = node1;
+	ft_lstadd_back(&list, node2);
+	ft_lstadd_back(&list, node3);
+	ft_lstadd_back(&list, node4);
+	ft_lstadd_back(&list, node5);
+	ft_lstadd_back(&list, node6);
+	printf("\n#beforeiter#\n");
+	listprint(list);
+	printf("\nlstiter적용\n");
+	ft_lstiter(list, iterfnc);
+
+	printf("\n\n####ft_lstmap####\n");
+	t_list	*list2;
+	int	*intcont1 = malloc(4);
+	*intcont1 = 1;
+	t_list	*intnode1 = ft_lstnew(intcont1);
+	
+	int	*intcont2 = malloc(4);
+	*intcont2 = 2;
+	t_list	*intnode2 = ft_lstnew(intcont2);
+	
+	int *intcont3 = malloc(4);
+	*intcont3 = 3;
+	t_list	*intnode3 = ft_lstnew(intcont3);
+
+	int	*intcont4 = malloc(4);
+	*intcont4 = 4;
+	t_list	*intnode4 = ft_lstnew(intcont4);
+	list2 = intnode1;
+	ft_lstadd_back(&list2, intnode2);
+	ft_lstadd_back(&list2, intnode3);
+	ft_lstadd_back(&list2, intnode4);
+	listintprint(list2);
+
+	ft_lstmap(list2, mapfnc, delcontent);
+	listintprint(list2);
 	return 0;
 }

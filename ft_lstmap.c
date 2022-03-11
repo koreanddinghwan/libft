@@ -1,28 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/10 16:50:55 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/11 17:33:46 by myukang          ###   ########.fr       */
+/*   Created: 2022/03/11 16:37:04 by myukang           #+#    #+#             */
+/*   Updated: 2022/03/11 17:01:33 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	char	*substr;
+	t_list	*cur;
+	t_list	*start;
+	t_list	*next;
 
-	substr = ft_calloc(len + 1, sizeof(char));
-	if (!substr)
+	if (!lst || !f || !del)
 		return (0);
-	if (!s)
+	cur = ft_lstnew(lst->content);
+	if (!cur)
 		return (0);
-	if (ft_strlen((char *)s) <= (size_t)start)
-		return (ft_strdup(0));
-	ft_strlcpy(substr, (char *)(s + start), len + 1);
-	return (substr);
+	start = cur;
+	next = 0;
+	while (lst != 0)
+	{
+		if (lst->next != 0)
+			next = ft_lstnew(lst->next->content);
+		else
+			next = 0;
+		cur->next = next;
+		cur->content = f(lst->content);
+		cur = cur->next;
+		lst = lst->next;
+	}
+	return (start);
 }

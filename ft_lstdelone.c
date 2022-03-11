@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/10 16:50:55 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/11 17:33:46 by myukang          ###   ########.fr       */
+/*   Created: 2022/03/11 14:10:56 by myukang           #+#    #+#             */
+/*   Updated: 2022/03/11 15:14:28 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	char	*substr;
-
-	substr = ft_calloc(len + 1, sizeof(char));
-	if (!substr)
-		return (0);
-	if (!s)
-		return (0);
-	if (ft_strlen((char *)s) <= (size_t)start)
-		return (ft_strdup(0));
-	ft_strlcpy(substr, (char *)(s + start), len + 1);
-	return (substr);
+	if (!lst)
+		return ;
+	if (!del)
+		return ;
+	del(lst->content);
+	free(lst);
 }
