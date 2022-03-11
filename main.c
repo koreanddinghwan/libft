@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/11 17:36:33 by myukang           #+#    #+#             */
+/*   Updated: 2022/03/11 20:13:46 by myukang          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
@@ -69,7 +81,7 @@ void	*mapfnc(void	*cont)
 int main(void)
 {
 	int i  = -10;
-	while (i < 130)
+	while (i < 500)
 	{
 		printf("---------");
 		printf("\ni : %d isalpha : %d\n",i, isalpha(i));
@@ -77,7 +89,7 @@ int main(void)
 		i++;
 	}
 	i = -10;
-	while (i < 130)
+	while (i < 500)
 	{
 		printf("---------");
 		printf("\ni : %d isdigit : %d\n",i ,  isdigit(i));
@@ -85,7 +97,7 @@ int main(void)
 		i++;
 	}
 	i = -10;
-	while (i < 130)
+	while (i < 500)
 	{
 		printf("---------");
 		printf("\ni : %d isalnum : %d\n", i, ft_isalnum(i));
@@ -94,7 +106,7 @@ int main(void)
 	}
 
 	i = -10;
-	while (i < 130)
+	while (i < 500)
 	{
 		printf("---------");
 		printf("\ni : %d isascii : %d\n", i, isascii(i));
@@ -594,5 +606,15 @@ After memcpy, target becomes "This is the source string"
 
 	ft_lstmap(list2, mapfnc, delcontent);
 	listintprint(list2);
+	
+	char *asdf = "asdfasdf";
+	printf("%s\n", ft_strchr(asdf, 0));	
+	printf("%s\n", strchr(asdf, 0));	
+
+	char *strrchrsrc = "abbbbbbbbbbb";
+	char *d1 = strrchr(strrchrsrc, 'a');
+	char *d2 = ft_strrchr(strrchrsrc, 'a');
+	printf("%s\n", d1);
+	printf("%s\n", d2);
 	return 0;
 }

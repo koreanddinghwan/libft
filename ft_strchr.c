@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 15:51:12 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/11 17:27:42 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/11 20:11:49 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@ char	*ft_strchr(const char *s, int c)
 		if (*s == (char)c)
 		{
 			p = (char *)s;
-			break ;
+			return (p);
 		}
 		s++;
 	}
+	p = (char *)s;
 	return (p);
 }

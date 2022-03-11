@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 16:37:02 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/10 19:14:43 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/11 19:48:51 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,19 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	char			*d;
-	char			*s;
+	unsigned char	*d;
+	unsigned char	*s;
+	size_t			i;
 
-	d = (char *)dst;
-	s = (char *)src;
-	while (n-- > 0)
-		*(d++) = *(s++);
+	i = 0;
+	d = (unsigned char *)dst;
+	s = (unsigned char *)src;
+	if (!src && !dst)
+		return (0);
+	while (i < n)
+	{
+		d[i] = s[i];
+		i++;
+	}
 	return (dst);
 }

@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 10:32:55 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/11 17:26:32 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/11 19:53:04 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 		c2++;
 		i++;
 	}
+	if (i == n)
+		return (0);
 	return (*c1 - *c2);
 }
