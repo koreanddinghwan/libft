@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 17:36:33 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/11 20:13:46 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/11 20:34:44 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -611,10 +611,28 @@ After memcpy, target becomes "This is the source string"
 	printf("%s\n", ft_strchr(asdf, 0));	
 	printf("%s\n", strchr(asdf, 0));	
 
-	char *strrchrsrc = "abbbbbbbbbbb";
-	char *d1 = strrchr(strrchrsrc, 'a');
-	char *d2 = ft_strrchr(strrchrsrc, 'a');
+	char *src = "abbbbbbbbbbb";
+	char *d1 = strrchr(src, 'a');
+	char *d2 = ft_strrchr(src, 'a');
 	printf("%s\n", d1);
 	printf("%s\n", d2);
+
+	src = "there is so \0ma\0ny \0 \\0 in t\0his stri\0ng !\0\0\0\0";
+	d1 = strrchr(src, '\0');
+	d2 = ft_strrchr(src, '\0');
+	printf("%s\n", d1);
+	printf("%s\n", d2);
+
+	char n[40] = "99999999999999999999999999";
+	int i1 = atoi(n);
+	int i2 = ft_atoi(n);
+	printf("%d\n", i1);
+	printf("%d\n", i2);
+
+	printf("%d\n", atoi("2147483648"));
+	printf("%d\n", ft_atoi("2147483648"));
+	printf("%d\n", atoi("-2147483649"));
+	printf("%d\n", ft_atoi("-2147483649"));
+
 	return 0;
 }

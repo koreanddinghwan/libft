@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 15:37:11 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/11 17:22:30 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/11 20:33:18 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ static int	ft_isspace(char c)
 
 int	ft_atoi(const char *str)
 {
-	long long	result;
-	int			sign;
+	int		result;
+	int		sign;
 
 	result = 0;
 	sign = 1;
