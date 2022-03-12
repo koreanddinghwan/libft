@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 15:51:12 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/11 20:22:17 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/12 15:21:23 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ char	*ft_strchr(const char *s, int c)
 		i++;
 	}
 	if ((i == size) && c == 0)
-		return (char *)(s + i);
+		return ((char *)(s + i));
 	return (p);
 }

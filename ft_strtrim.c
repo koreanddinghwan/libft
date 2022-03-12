@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 17:34:59 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/12 15:04:41 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/12 17:29:11 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (ft_strdup(""));
 	if ((ft_strlen((char *)s1) == left) && (left == right))
 		return (ft_strdup(""));
-	result = ft_calloc((ft_strlen((char *)s1)) - left - right + 1, sizeof(char));
+	result = ft_calloc((ft_strlen((char *)s1))
+			- left - right + 1, sizeof(char));
 	if (!result)
 		return (0);
-	ft_strlcpy(result, (char *)s1 + left, (ft_strlen((char *)s1)) - left - right + 1);
+	ft_strlcpy(result, (char *)s1 + left,
+		(ft_strlen((char *)s1)) - left - right + 1);
 	return (result);
 }
