@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 17:36:33 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/12 12:17:23 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/12 14:59:33 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	listintprint(t_list	*start)
 
 void	delcontent(void	*delcontp)
 {
-	free(delcontp);	
+	printf("delcont %s\n", delcontp);	
 }
 
 void	iterfnc(void	*cont)
@@ -76,6 +76,13 @@ void	*mapfnc(void	*cont)
 	result = cont;
 	*result = *result + 1;
 	return (result);
+}
+
+void	*strmapfnc(void	*str)
+{
+	if (!str)
+		return (0);
+	return (ft_strdup("OK !"));
 }
 
 int main(void)
@@ -662,5 +669,29 @@ After memcpy, target becomes "This is the source string"
 	s2 = "";
 	ret = ft_strtrim(s1, " \n\t");
 	printf("\"%s\"\n", ret);
+
+	s1 = "";
+	s2 = "";
+	ret = ft_strjoin(s1, s2);
+	printf("\"%s\"\n", ret);
+	
+	s1 = "aasdaf";
+	s2 = "";
+	ret = ft_strjoin(s1, s2);
+	printf("\"%s\"\n", ret);
+	
+	s1 = "";
+	s2 = "aasdaf";
+	ret = ft_strjoin(s1, s2);
+	printf("\"%s\"\n", ret);
+
+	t_list *l = ft_lstnew(strdup(" 1 2 3 "));
+
+	l->next = ft_lstnew(strdup("ss"));
+	l->next->next = ft_lstnew(strdup("-_-"));
+	t_list *rtn;
+
+	rtn = ft_lstmap(l, strmapfnc, ((void *)0));
+	listprint(rtn);
 	return 0;
 }
