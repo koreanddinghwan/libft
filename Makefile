@@ -6,7 +6,7 @@
 #    By: myukang <myukang@student.42.kr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/11 17:36:18 by myukang           #+#    #+#              #
-#    Updated: 2022/03/11 18:31:22 by myukang          ###   ########.fr        #
+#    Updated: 2022/03/12 15:07:12 by myukang          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,22 +21,13 @@ CFLAGS = -Wall -Wextra -Werror -c
 all : $(NAME)
 
 .c.o : $(SRCS) $(BONUS_SRCS)
-	$(CC) -g $(CFLAGS) $< -o $(<:.c=.o) -I . 
+	$(CC) $(CFLAGS) $< -o $(<:.c=.o) -I . 
 
 $(NAME) : $(OBJS)
 	ar rc $(NAME) $^
 
 bonus : $(BONUS_OBJS) $(OBJS)
 	ar rc $(NAME) $^
-
-main : $(re)
-	gcc -Wall -Wextra -Werror main.c -lft -L.
-
-dmain : $(re)
-	gcc -g main.c -lft -L.
-
-mclean :
-	@rm -f a.out
 
 fclean : clean
 	@rm -f $(NAME)
@@ -46,4 +37,4 @@ clean :
 
 re : fclean all
 
-.PHONY: all clean fclean re main mclean
+.PHONY: all clean fclean re 
