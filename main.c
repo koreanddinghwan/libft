@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 17:36:33 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/11 20:34:44 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/12 12:17:23 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -634,5 +634,33 @@ After memcpy, target becomes "This is the source string"
 	printf("%d\n", atoi("-2147483649"));
 	printf("%d\n", ft_atoi("-2147483649"));
 
+	char *str = "i just want this part #############";
+	size_t size = 22;
+	char *ret = ft_substr(str, 0, size);
+	printf("%s\n", ret);
+		
+	str = "";
+	size = 0;
+	ret = ft_substr(str, 5, size);
+	printf("%s\n", ret);
+
+	char *s1 = "   \t\n\nHello \t  Please\n Trim me !\n ";
+	char *s2 = "Hello \t  Please\n Trim me !";
+	ret = ft_strtrim(s1, " \n\t");
+	printf("#######\n");
+	printf("\"%s\"\n", ret);
+	printf("######\n");
+	printf("\"%s\"\n", s2);
+	printf("#####\n");
+
+	s1 = "";
+	s2 = "";
+	ret = ft_strtrim(s1, " \n\t");
+	printf("\"%s\"\n", ret);
+
+	s1 = "  \t \t \n   \n\n\n\t";
+	s2 = "";
+	ret = ft_strtrim(s1, " \n\t");
+	printf("\"%s\"\n", ret);
 	return 0;
 }

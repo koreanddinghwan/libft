@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 17:05:37 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/11 17:28:24 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/12 12:24:57 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*joinstr;
 
 	str_len = ft_strlen((char *)s1) + ft_strlen((char *)s2);
-	joinstr = ft_calloc(str_len, sizeof(char));
+	if (str_len == 0)
+		return (ft_strdup(""));
+	joinstr = ft_calloc(str_len + 1, sizeof(char));
 	if (!joinstr)
 		return (0);
 	ft_strlcpy(joinstr + ft_strlcpy(joinstr,
