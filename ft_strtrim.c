@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 17:34:59 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/12 17:29:11 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/14 13:37:56 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 static size_t	ft_get_right(char *ds, char *set)
 {
 	size_t	size;
+	char	*origin;
 
 	size = 0;
+	origin = ds;
 	while (*ds)
 		ds++;
 	ds--;
@@ -25,6 +27,8 @@ static size_t	ft_get_right(char *ds, char *set)
 		if (ft_strchr(set, *ds))
 			size++;
 		else
+			break ;
+		if ((size_t)(ds) == (size_t)origin)
 			break ;
 		ds--;
 	}

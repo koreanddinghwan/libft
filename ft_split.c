@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 19:06:21 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/12 15:59:12 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/14 12:13:49 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	**ft_split(char const *s, char c)
 	p_index = 0;
 	if (!p)
 		return (0);
-	if (c == 0)
+	if ((c == 0) && (*s != 0))
 		p[p_index++] = ft_strdup((char *)s);
 	while (*s)
 	{

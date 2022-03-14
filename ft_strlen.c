@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 14:27:19 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/10 18:27:55 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/14 16:59:10 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,7 @@ size_t	ft_strlen(char *s)
 	size_t	size;
 
 	size = 0;
-	while (*s)
-	{
+	while (s[size])
 		size++;
-		s++;
-	}
 	return (size);
 }

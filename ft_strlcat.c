@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 12:53:49 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/09 13:48:40 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/14 17:01:26 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ size_t	ft_strlcat(char *dest, char *src, size_t size)
 	len_dest = ft_strlen(dest);
 	len_src = ft_strlen(src);
 	i = 0;
-	if ((size - 1 > len_dest) && (size != 0))
+	if (size > len_dest + 1)
 		ft_cat(dest, src, size, len_dest);
 	if (size <= len_dest)
 		return (len_src + size);
