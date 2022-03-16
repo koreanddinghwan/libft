@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 19:06:21 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/16 18:23:20 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/16 20:38:42 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,19 @@ static char	*ft_make_wd(char *str, char c, int	*alloc_err)
 	return (p);
 }
 
-static void	ft_freesplit(char **s, int *p_index)
+static void	ft_freesplit(char ***s, int *p_index)
 {
-	int	i;
+	char	**str;
+	int		i;
 
+	str = *s;
 	i = 0;
 	while (i < *p_index)
 	{
-		free(s[i++]);
+		free(str[i++]);
 	}
+	free(str);
+	*s = ft_calloc(sizeof(char *), 1);
 	*p_index = 0;
 }
 
@@ -69,6 +73,8 @@ char	**ft_split(char const *s, char c)
 	int		p_index;
 	int		alloc_err;
 
+	if (!s)
+		return (0);
 	p = ft_calloc(ft_wd_cnt((char *)s, c) + 1, sizeof(char *));
 	if (!p)
 		return (0);
@@ -84,7 +90,7 @@ char	**ft_split(char const *s, char c)
 			s++;
 	}
 	if (alloc_err)
-		ft_freesplit(p, &p_index);
+		ft_freesplit(&p, &p_index);
 	p[p_index] = 0;
 	return (p);
 }

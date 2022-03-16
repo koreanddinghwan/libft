@@ -6,7 +6,7 @@
 #    By: myukang <myukang@student.42.kr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/11 17:36:18 by myukang           #+#    #+#              #
-#    Updated: 2022/03/16 18:04:46 by myukang          ###   ########.fr        #
+#    Updated: 2022/03/16 20:36:37 by myukang          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,11 +22,12 @@ all : $(NAME)
 
 %.o : %.c
 	$(CC) $(CFLAGS) $< -o $(<:.c=.o) -I .
-	ar rc $(NAME) $@
 
 $(NAME) : $(OBJS)
+	ar rc $(NAME) $^
 
-bonus : $(BONUS_OBJS) $(OBJS)
+bonus : $(BONUS_OBJS)
+	ar rc $(NAME) $^
 
 fclean : clean
 	rm -f $(NAME)
