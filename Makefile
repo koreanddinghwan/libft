@@ -6,7 +6,7 @@
 #    By: myukang <myukang@student.42.kr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/11 17:36:18 by myukang           #+#    #+#              #
-#    Updated: 2022/03/14 17:10:17 by myukang          ###   ########.fr        #
+#    Updated: 2022/03/16 18:04:46 by myukang          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,14 +20,13 @@ CFLAGS = -Wall -Wextra -Werror -c
 
 all : $(NAME)
 
-.c.o : $(SRCS) $(BONUS_SRCS)
+%.o : %.c
 	$(CC) $(CFLAGS) $< -o $(<:.c=.o) -I .
+	ar rc $(NAME) $@
 
 $(NAME) : $(OBJS)
-	ar rc $(NAME) $^
 
 bonus : $(BONUS_OBJS) $(OBJS)
-	ar rc $(NAME) $^
 
 fclean : clean
 	rm -f $(NAME)

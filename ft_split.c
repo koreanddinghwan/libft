@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 19:06:21 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/16 14:14:18 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/16 18:23:20 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,6 @@ char	**ft_split(char const *s, char c)
 		return (0);
 	p_index = 0;
 	alloc_err = 0;
-	if (!p)
-		return (0);
 	while (*s && !alloc_err)
 	{
 		while (*s && (*s == c) && !alloc_err)

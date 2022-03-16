@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 15:51:12 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/16 12:33:45 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/16 18:18:56 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,16 @@ char	*ft_strchr(const char *s, int c)
 	if ((i == size) && (unsigned char)c == 0)
 		return ((char *)(s + i));
 	return (p);
+}
+
+#include <string.h>
+#include <stdio.h>
+
+int main()
+{
+	char *str = "test";
+
+	printf("%s\n", strchr(str, 't' + 256));
+	printf("%s\n", ft_strchr(str, 't' + 256));
+
 }

@@ -6,7 +6,7 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 16:50:55 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/16 12:31:11 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/16 18:23:10 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	substr = ft_calloc(size + 1, sizeof(char));
 	if (!substr)
 		return (0);
-	ft_strlcpy(substr, (char *)(s + start), len + 1);
+	ft_strlcpy(substr, (char *)(s + start), size + 1);
 	return (substr);
 }
