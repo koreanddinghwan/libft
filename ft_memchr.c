@@ -6,11 +6,11 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 10:33:09 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/11 17:25:51 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/16 14:14:07 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

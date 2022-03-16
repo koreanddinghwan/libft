@@ -6,12 +6,11 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 19:06:21 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/16 12:01:23 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/16 14:14:18 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static	int	ft_wd_cnt(char *str, char c)
 {
