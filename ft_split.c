@@ -6,13 +6,14 @@
 /*   By: myukang <myukang@student.42.kr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 19:06:21 by myukang           #+#    #+#             */
-/*   Updated: 2022/03/14 21:20:27 by myukang          ###   ########.fr       */
+/*   Updated: 2022/03/16 12:01:23 by myukang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-static	int	ft_calstr(char *str, char c)
+static	int	ft_wd_cnt(char *str, char c)
 {
 	int	count;
 
@@ -33,7 +34,7 @@ static	int	ft_calstr(char *str, char c)
 	return (count);
 }
 
-static char	*ft_makestr(char *str, char c)
+static char	*ft_make_wd(char *str, char c, int	*alloc_err)
 {
 	int		i;
 	char	*p;
@@ -43,42 +44,50 @@ static char	*ft_makestr(char *str, char c)
 		i++;
 	p = ft_calloc(i + 1, sizeof(char));
 	if (!p)
+	{
+		*alloc_err = 1;
 		return (0);
+	}
 	ft_strlcpy(p, str, i + 1);
 	return (p);
 }
 
-static void	ft_freesplit(char **s, int n)
+static void	ft_freesplit(char **s, int *p_index)
 {
 	int	i;
 
 	i = 0;
-	while (i < n)
+	while (i < *p_index)
 	{
 		free(s[i++]);
 	}
+	*p_index = 0;
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**p;
 	int		p_index;
+	int		alloc_err;
 
-	p = ft_calloc(ft_calstr((char *)s, c) + 1, sizeof(char *));
-	p_index = 0;
+	p = ft_calloc(ft_wd_cnt((char *)s, c) + 1, sizeof(char *));
 	if (!p)
 		return (0);
-	while (*s)
+	p_index = 0;
+	alloc_err = 0;
+	if (!p)
+		return (0);
+	while (*s && !alloc_err)
 	{
-		while (*s && (*s == c))
+		while (*s && (*s == c) && !alloc_err)
 			s++;
 		if (*s != 0)
-		{
-			p[p_index++] = ft_makestr((char *)s, c);
-			while (*s && !(*s == c))
-				s++;
-		}
+			p[p_index++] = ft_make_wd((char *)s, c, &alloc_err);
+		while (*s && !(*s == c) && !alloc_err)
+			s++;
 	}
+	if (alloc_err)
+		ft_freesplit(p, &p_index);
 	p[p_index] = 0;
 	return (p);
 }
